@@ -15,6 +15,7 @@ object Validation {
     }
 
     fun checkCantEatMenu(input: String) {
+        if (input.isBlank()) return
         checkValidMenu(input)
         checkMenuCount(input)
     }
