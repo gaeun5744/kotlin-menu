@@ -10,9 +10,9 @@ class InputView {
         return try {
             val input = Console.readLine()
             Validation.checkCoachesName(input)
-            input.split(",")
+            input.split(",").also { println() }
         } catch (e: IllegalArgumentException) {
-            println(e.message)
+            println(e.message).also { println() }
             readCoachesName()
         }
     }
@@ -26,7 +26,7 @@ class InputView {
             Validation.checkCantEatMenu(input)
             input.split(",")
         } catch (e: IllegalArgumentException) {
-            println(e.message)
+            println(e.message).also { println() }
             readCantEat(coach)
         }
     }
