@@ -1,5 +1,7 @@
 package menu
 
+import menu.MenuController.MenuController
+
 fun main() {
-    TODO("프로그램 구현")
+    MenuController().run()
 }
