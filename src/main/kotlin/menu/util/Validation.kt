@@ -7,6 +7,11 @@ object Validation {
     private const val INVALID_MENU_ERROR_MESSAGE = "[ERROR] 유효하지 않은 메뉴 입력 입니다."
     private const val MENU_COUNT_ERROR_MESSAGE = "[ERROR] 먹지 못하는 메뉴는 2개까지 가능합니다."
     private const val NAME_SEPARATOR = ","
+    private const val MINIMUM_NAME_LENGTH = 2
+    private const val MAX_NAME_LENGTH = 4
+    private const val MINIMUM_COACH_COUNT = 2
+    private const val MAX_COACH_COUNT = 5
+    private const val MAX_CANT_EAT_MENU = 2
 
     fun checkCoachesName(input: String) {
         checkContainComma(input)
@@ -29,15 +34,15 @@ object Validation {
     private fun checkNameLength(input: String) {
         val names = input.split(NAME_SEPARATOR)
         names.forEach { name ->
-            require(name.length in 2..4) {
+            require(name.length in MINIMUM_NAME_LENGTH..MAX_NAME_LENGTH) {
                 COACH_NAME_ERROR_MESSAGE
             }
         }
     }
 
     private fun checkCoachCount(input: String) {
-        val names = input.split(",")
-        require(names.size in 2..5) {
+        val names = input.split(NAME_SEPARATOR)
+        require(names.size in MINIMUM_COACH_COUNT..MAX_COACH_COUNT) {
             COACH_COUNT_ERROR_MESSAGE
         }
     }
@@ -53,7 +58,7 @@ object Validation {
 
     private fun checkMenuCount(input: String) {
         val menus = input.split(NAME_SEPARATOR)
-        require(menus.size <= 2) {
+        require(menus.size <= MAX_CANT_EAT_MENU) {
             MENU_COUNT_ERROR_MESSAGE
         }
     }
