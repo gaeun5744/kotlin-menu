@@ -10,16 +10,22 @@ class SelectMenu(
 
     private val recommendation = mutableMapOf<String, MutableList<String>>()
 
+    init {
+        initRecommendMenu()
+    }
+
+    private fun initRecommendMenu() {
+        coachesCantEat.keys.forEach { coach ->
+            recommendation[coach] = mutableListOf()
+        }
+    }
+
     private fun getRandomMenu(category: Category): String {
         return Randoms.shuffle(category.menu)[0]
     }
 
     fun getRecommendation(): Map<String, List<String>> {
         val categories = selectCategory.weekCategories
-
-        coachesCantEat.keys.forEach { coach ->
-            recommendation[coach] = mutableListOf()
-        }
 
         for (category in categories) {
             coachesCantEat.keys.forEach { coach ->
