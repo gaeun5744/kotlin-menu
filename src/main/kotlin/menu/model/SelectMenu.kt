@@ -19,5 +19,8 @@ class SelectMenu(
     }
 
 
+    private fun checkCantEat(coach: String, randomMenu: String) =
+        coachesCantEat[coach]!!.contains(randomMenu) || recommendation[coach]!!.contains(randomMenu)
+
 
 }
