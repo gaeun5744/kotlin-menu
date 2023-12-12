@@ -15,7 +15,7 @@ class SelectCategoryTest {
         assertRandomNumberInRangeTest(
             {
                 assertEquals(
-                    selectCategory.weekCategories,
+                    selectCategory.getSelectedCategories(),
                     listOf(
                         Category.CHINESE,
                         Category.KOREA,
