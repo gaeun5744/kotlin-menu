@@ -29,13 +29,13 @@ class SelectMenu(
 
         for (category in categories) {
             coachesCantEat.keys.forEach { coach ->
-                insertRecommendMenu(category, coach)
+                insertCategoryMenuInRecommend(category, coach)
             }
         }
         return recommendation
     }
 
-    private fun insertRecommendMenu(category: Category, coach: String) {
+    private fun insertCategoryMenuInRecommend(category: Category, coach: String) {
         while (true) {
             val randomMenu = getRandomMenu(category)
             if (!checkCantEat(coach, randomMenu)) {
