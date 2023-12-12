@@ -25,8 +25,14 @@ class SelectCategoryTest {
                     )
                 )
             },
-            3, 2, 3, 3, 5, 5, 5, 3,
+            CHINESE, KOREA, CHINESE, CHINESE, WESTERN, WESTERN, WESTERN, CHINESE,
         )
+    }
+
+    companion object {
+        private const val KOREA = 2
+        private const val CHINESE = 3
+        private const val WESTERN = 5
     }
 
 }
