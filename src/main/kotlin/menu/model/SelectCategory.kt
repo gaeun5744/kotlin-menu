@@ -5,6 +5,8 @@ import menu.util.Category
 
 class SelectCategory {
 
+    val weekCategories : List<Category> by lazy { getSelectedCategories() }
+
     private fun getRandomCategory(): Category {
 
         when (Randoms.pickNumberInRange(1, 5)) {
@@ -18,7 +20,7 @@ class SelectCategory {
         return Category.JAPANESE
     }
 
-    fun getWeekCategories(): List<Category> {
+    private fun getSelectedCategories(): List<Category> {
         val weekCategories = mutableListOf<Category>()
 
         while (weekCategories.size != 5) {
