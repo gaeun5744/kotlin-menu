@@ -8,7 +8,7 @@ class OutputView {
         println(MENU_RECOMMEND_START_MESSAGE).also { println() }
     }
 
-    fun printResult(categories: List<Category>, selectMenus: Map<String, List<String>>) {
+    fun printRecommendMenu(categories: List<Category>, selectMenus: Map<String, List<String>>) {
 
         println(MENU_RECOMMEND_RESULT_MESSAGE)
         println(WEEK_CATEGORY)
@@ -19,7 +19,9 @@ class OutputView {
         selectMenus.forEach { (t, u) ->
             printCoachMenu(t, u)
         }
+    }
 
+    fun printEndingMessage(){
         println(ENDING_MESSAGE)
     }
 

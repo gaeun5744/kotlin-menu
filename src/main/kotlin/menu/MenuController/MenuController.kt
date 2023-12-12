@@ -17,7 +17,8 @@ class MenuController(
         val weekCategories = SelectCategory().getSelectedCategories()
         val selectMenu = SelectMenu(cantMenus, weekCategories)
 
-        outputView.printResult(weekCategories, selectMenu.getRecommendation())
+        outputView.printRecommendMenu(weekCategories, selectMenu.getRecommendation())
+        outputView.printEndingMessage()
 
     }
 }
