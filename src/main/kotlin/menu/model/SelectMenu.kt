@@ -34,8 +34,8 @@ class SelectMenu(
             val randomMenu = getRandomMenu(category)
             if (!checkCantEat(coach, randomMenu)) {
                 recommendation[coach]!!.add(randomMenu)
+                break
             }
-            break
         }
     }
 
