@@ -13,7 +13,7 @@ class OutputView {
         println(MENU_RECOMMEND_RESULT_MESSAGE)
         println(WEEK_CATEGORY)
         print(CATEGORY_START)
-        categories.forEach { print(" | ${it.categoryName}") }
+        categories.forEach { print("$MENU_RECOMMEND_DIVIDER${it.categoryName}") }
         println(CATEGORY_END)
 
         selectMenus.forEach { (t, u) ->
