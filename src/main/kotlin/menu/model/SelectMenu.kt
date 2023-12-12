@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms
 import menu.util.Category
 
 class SelectMenu(
+    private val coachesCantEat: Map<String, List<String>>,
     private val selectCategory: SelectCategory = SelectCategory(),
-    private val coachesCantEat: Map<String, List<String>>
 ) {
 
     private val recommendation = mutableMapOf<String, MutableList<String>>().apply {
