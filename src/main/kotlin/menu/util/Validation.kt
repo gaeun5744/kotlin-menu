@@ -43,8 +43,9 @@ object Validation {
 
     private fun checkValidMenu(input: String) {
         val cantMenus = input.split(NAME_SEPARATOR)
+        val menus = Category.values().flatMap { it.menu }
 
-        require(Category.values().intersect(cantMenus).size == cantMenus.size) {
+        require(menus.intersect(cantMenus).size == cantMenus.size) {
             throw IllegalArgumentException(INVALID_MENU_ERROR_MESSAGE)
         }
     }
