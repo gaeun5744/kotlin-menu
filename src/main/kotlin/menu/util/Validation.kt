@@ -16,6 +16,7 @@ object Validation {
 
     fun checkCantEatMenu(input: String) {
         checkValidMenu(input)
+        checkMenuCount(input)
     }
 
     private fun checkContainComma(input: String) {
@@ -41,12 +42,11 @@ object Validation {
     }
 
     private fun checkValidMenu(input: String) {
-        val menus = input.split(NAME_SEPARATOR)
-        Category.values().forEach { category ->
-            if (category.menu.intersect(menus).isNotEmpty()) return
-        }
+        val cantMenus = input.split(NAME_SEPARATOR)
 
-        throw IllegalArgumentException(INVALID_MENU_ERROR_MESSAGE)
+        require(Category.values().intersect(cantMenus).size == cantMenus.size) {
+            throw IllegalArgumentException(INVALID_MENU_ERROR_MESSAGE)
+        }
     }
 
     private fun checkMenuCount(input: String) {
