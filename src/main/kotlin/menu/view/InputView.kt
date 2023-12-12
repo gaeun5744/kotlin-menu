@@ -5,19 +5,19 @@ import menu.util.Validation
 
 class InputView {
 
-    fun readCoachesName():List<String> {
+    fun readCoachesName(): List<String> {
         println("코치의 이름을 입력해 주세요. (, 로 구분)")
         return try {
             val input = Console.readLine()
             Validation.checkCoachesName(input)
             input.split(",")
-        } catch (e: IllegalStateException) {
+        } catch (e: IllegalArgumentException) {
             println(e.message)
             readCoachesName()
         }
     }
 
-    fun readCantEat(coach: String): List<String> {
+    private fun readCantEat(coach: String): List<String> {
 
         println("${coach}(이)가 못 먹는 메뉴를 입력해 주세요.")
 
@@ -25,9 +25,9 @@ class InputView {
             val input = Console.readLine()
             Validation.checkCantEatMenu(input)
             input.split(",")
-        } catch (e: IllegalStateException) {
+        } catch (e: IllegalArgumentException) {
             println(e.message)
-            readCoachesName()
+            readCantEat(coach)
         }
     }
 
