@@ -18,6 +18,25 @@ class SelectMenu(
         return Randoms.shuffle(category.menu)[0]
     }
 
+    fun getRecommendation(): Map<String, List<String>> {
+        val categories = selectCategory.getWeekCategories()
+
+        for (category in categories) {
+            coachesCantEat.keys.forEach { coach ->
+                insertRecommendMenu(coach, category)
+            }
+        }
+        return recommendation
+    }
+
+    private fun insertRecommendMenu(coach: String, category: Category) {
+        while (recommendation[coach]!!.size != 5) {
+            val randomMenu = getRandomMenu(category)
+            if (!checkCantEat(coach, randomMenu)) {
+                recommendation[coach]!!.add(randomMenu)
+            }
+        }
+    }
 
     private fun checkCantEat(coach: String, randomMenu: String) =
         coachesCantEat[coach]!!.contains(randomMenu) || recommendation[coach]!!.contains(randomMenu)
