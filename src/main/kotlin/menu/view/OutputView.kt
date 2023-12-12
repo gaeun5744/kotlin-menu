@@ -16,8 +16,8 @@ class OutputView {
         categories.forEach { print("$MENU_RECOMMEND_DIVIDER${it.categoryName}") }
         println(CATEGORY_END)
 
-        selectMenus.forEach { (t, u) ->
-            printCoachMenu(t, u)
+        selectMenus.forEach { (coach, menus) ->
+            printCoachMenu(coach, menus)
         }
     }
 
