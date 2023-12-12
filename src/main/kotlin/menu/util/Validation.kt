@@ -32,7 +32,7 @@ object Validation {
     }
 
     private fun checkNameLength(input: String) {
-        val names = input.split(NAME_SEPARATOR)
+        val names = inputSplit(input)
         names.forEach { name ->
             require(name.length in MINIMUM_NAME_LENGTH..MAX_NAME_LENGTH) {
                 COACH_NAME_ERROR_MESSAGE
@@ -41,14 +41,14 @@ object Validation {
     }
 
     private fun checkCoachCount(input: String) {
-        val names = input.split(NAME_SEPARATOR)
+        val names = inputSplit(input)
         require(names.size in MINIMUM_COACH_COUNT..MAX_COACH_COUNT) {
             COACH_COUNT_ERROR_MESSAGE
         }
     }
 
     private fun checkValidMenu(input: String) {
-        val cantMenus = input.split(NAME_SEPARATOR)
+        val cantMenus = inputSplit(input)
         val menus = Category.values().flatMap { it.menu }
 
         require(menus.intersect(cantMenus).size == cantMenus.size) {
@@ -57,9 +57,11 @@ object Validation {
     }
 
     private fun checkMenuCount(input: String) {
-        val menus = input.split(NAME_SEPARATOR)
+        val menus = inputSplit(input)
         require(menus.size <= MAX_CANT_EAT_MENU) {
             MENU_COUNT_ERROR_MESSAGE
         }
     }
+
+    private fun inputSplit(input: String) = input.split(NAME_SEPARATOR)
 }
