@@ -5,7 +5,7 @@ import menu.util.Category
 
 class SelectMenu(
     private val coachesCantEat: Map<String, List<String>>,
-    private val selectCategory: SelectCategory
+    private val categories: List<Category>
 ) {
 
     private val recommendation = mutableMapOf<String, MutableList<String>>()
@@ -25,7 +25,6 @@ class SelectMenu(
     }
 
     fun getRecommendation(): Map<String, List<String>> {
-        val categories = selectCategory.weekCategories
 
         for (category in categories) {
             coachesCantEat.keys.forEach { coach ->

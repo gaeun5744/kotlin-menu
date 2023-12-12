@@ -15,7 +15,8 @@ class MenuController(
         val cantMenus = inputView.readCantEatMenus(coaches)
 
         val selectCategory = SelectCategory()
-        val selectMenu = SelectMenu(cantMenus, selectCategory)
+        val weekCategories = selectCategory.weekCategories
+        val selectMenu = SelectMenu(cantMenus, weekCategories)
 
         outputView.printResult(selectCategory.weekCategories, selectMenu.getRecommendation())
 
