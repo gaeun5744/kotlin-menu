@@ -9,6 +9,7 @@ object Validation {
     fun checkCoachesName(input: String) {
         checkContainComma(input)
         checkNameLength(input)
+        checkCoachCount(input)
     }
 
     private fun checkContainComma(input: String) {
@@ -26,4 +27,10 @@ object Validation {
         }
     }
 
+    private fun checkCoachCount(input: String) {
+        val names = input.split(",")
+        require(names.size in 2..5) {
+            COACH_COUNT_ERROR_MESSAGE
+        }
+    }
 }
