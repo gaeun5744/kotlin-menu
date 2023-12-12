@@ -14,6 +14,9 @@ class SelectMenu(
         }
     }
 
+    private fun getRandomMenu(category: Category): String {
+        return Randoms.shuffle(category.menu)[0]
+    }
 
 
 
