@@ -17,4 +17,17 @@ class SelectCategory {
 
         return Category.JAPANESE
     }
+
+    fun getWeekCategories(): List<Category> {
+        val weekCategories = mutableListOf<Category>()
+
+        while (weekCategories.size != 5) {
+
+            val randomCategory = getRandomCategory()
+            if (weekCategories.count { it == randomCategory } < 2) {
+                weekCategories.add(randomCategory)
+            }
+        }
+        return weekCategories
+    }
 }
