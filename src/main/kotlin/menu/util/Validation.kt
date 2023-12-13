@@ -52,7 +52,7 @@ object Validation {
         val menus = Category.values().flatMap { it.menu }
 
         require(menus.intersect(cantMenus).size == cantMenus.size) {
-            throw IllegalArgumentException(INVALID_MENU_ERROR_MESSAGE)
+            INVALID_MENU_ERROR_MESSAGE
         }
     }
 
